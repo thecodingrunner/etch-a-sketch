@@ -18,23 +18,30 @@ button.addEventListener('click', () => {
 // Grid creation function that is run once the grid size is inputted, creating a grid of the specified size.
 // Interaction feature also included below.
 function makeGrid(rowcol) {
-for (let i = 0; i < rowcol; i++) {
-  const row = document.createElement('div')
-  container.appendChild(row)
-  row.classList.add('row')
-  for (let j = 0; j < rowcol; j++) {
-    const box = document.createElement('div')
-    row.appendChild(box)
-    box.classList.add('box')
+  for (let i = 0; i < rowcol; i++) {
+    const row = document.createElement('div')
+    container.appendChild(row)
+    row.classList.add('row')
+    for (let j = 0; j < rowcol; j++) {
+      const box = document.createElement('div')
+      row.appendChild(box)
+      box.classList.add('box')
+    };
   };
-};
 
 // If the user runs the mouse over a box that box will highlight in red. 
-const boxes = document.querySelectorAll('.box'); 
+  const boxes = document.querySelectorAll('.box'); 
 
-boxes.forEach((box) => box.addEventListener('mouseover', () => {
-  box.style.backgroundColor = '#DC4B4B'}
-))
+  function colorGen() {
+    return Math.floor(Math.random() * 255) + 1
+  };
+  
+  let darkFactor = 1;
+
+  boxes.forEach((box) => box.addEventListener('mouseover', () => {
+      darkFactor *= 0.995; 
+      box.style.backgroundColor = `rgb(${colorGen()*darkFactor},${colorGen()*darkFactor},${colorGen()*darkFactor})`;
+  }))
 };
 
 
