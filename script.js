@@ -1,6 +1,7 @@
-const container = document.querySelector('.container')
-const button = document.querySelector('button')
-const body = document.querySelector('body')
+const container = document.querySelector('.container');
+const button = document.querySelector('.button');
+const body = document.querySelector('body');
+const clearButton = document.querySelector('.clear');
 
 // Event listener that prompts user for a grid size upon clicking of the button. 
 // If the number is less or equal to 100 the grid creation function is run, otherwise a warning message is sent. 
@@ -42,8 +43,14 @@ function makeGrid(rowcol) {
       darkFactor *= 0.995; 
       box.style.backgroundColor = `rgb(${colorGen()*darkFactor},${colorGen()*darkFactor},${colorGen()*darkFactor})`;
   }))
-};
 
+  function clearPage() {
+    boxes.forEach((box) => box.style.backgroundColor = '#ffffff')
+    darkFactor = 1;
+  }
+  
+  clearButton.addEventListener('click', () => {clearPage()})
+};
 
 
 
