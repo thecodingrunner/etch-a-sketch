@@ -2,7 +2,8 @@ const container = document.querySelector('.container')
 const button = document.querySelector('button')
 const body = document.querySelector('body')
 
-
+// Event listener that prompts user for a grid size upon clicking of the button. 
+// If the number is less or equal to 100 the grid creation function is run, otherwise a warning message is sent. 
 button.addEventListener('click', () => {
   const size = prompt('Please choose the number of rows and columns');
   if (parseInt(size) <= 100) {
@@ -14,7 +15,8 @@ button.addEventListener('click', () => {
   };
 });
 
-
+// Grid creation function that is run once the grid size is inputted, creating a grid of the specified size.
+// Interaction feature also included below.
 function makeGrid(rowcol) {
 for (let i = 0; i < rowcol; i++) {
   const row = document.createElement('div')
@@ -27,6 +29,7 @@ for (let i = 0; i < rowcol; i++) {
   };
 };
 
+// If the user runs the mouse over a box that box will highlight in red. 
 const boxes = document.querySelectorAll('.box'); 
 
 boxes.forEach((box) => box.addEventListener('mouseover', () => {
